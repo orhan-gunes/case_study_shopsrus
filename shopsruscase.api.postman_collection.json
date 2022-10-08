@@ -56,10 +56,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"invoiceNo\": \"in Excepteur ea\",\n  \"totalAmount\": -51403012.36221743\n}",
+					"raw": "{\n  \"invoiceNo\": \"I00000002\",\n  \"totalAmount\": 1000\n}",
 					"options": {
 						"raw": {
-							"language": "json"
+							"language": "javascript"
 						}
 					}
 				},
