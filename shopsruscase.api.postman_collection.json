@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "aa35f097-ab4e-4874-84ca-720ab38d355b",
+		"name": "shopsruscase.api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "4728204"
+	},
+	"item": [
+		{
+			"name": "/HealthCheck",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/plain"
+					}
+				],
+				"url": "{{baseUrl}}/HealthCheck"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/HealthCheck"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "\"1987-10-06T04:18:22.110Z\""
+				}
+			]
+		},
+		{
+			"name": "/ApplyDiscountInvoice",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "text/plain"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"invoiceNo\": \"in Excepteur ea\",\n  \"totalAmount\": -51403012.36221743\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/ApplyDiscountInvoice"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"invoiceNo\": \"in Excepteur ea\",\n  \"totalAmount\": -51403012.36221743\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/ApplyDiscountInvoice"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"invoiceNo\": \"cupidata\",\n  \"invoiceDate\": \"1975-12-05T20:40:04.578Z\",\n  \"totalDiscount\": -21895674.4042992,\n  \"netTotal\": 1621813.3950218707,\n  \"grossTotal\": -69517048.50678295,\n  \"currencyCode\": \"sunt in et\",\n  \"customerId\": 94321772,\n  \"customer\": {\n    \"customerType\": 2,\n    \"customerName\": \"ut dolore in\",\n    \"custoerCode\": \"proident ad aute non\",\n    \"customerAdress\": [\n      {\n        \"isInvoiceAdres\": false,\n        \"title\": \"dolore ea commodo\",\n        \"adress\": \"nulla id\"\n      },\n      {\n        \"isInvoiceAdres\": false,\n        \"title\": \"incididunt quis eu mollit\",\n        \"adress\": \"reprehenderit id incididunt cillum\"\n      }\n    ]\n  },\n  \"invoiceLine\": [\n    {\n      \"lineNo\": -79986739,\n      \"invoiceId\": -22160963,\n      \"producteId\": -43146607,\n      \"netAmount\": 20220563.331593722,\n      \"discountAmount\": 59656551.33819637,\n      \"totalAmount\": -36083203.42880793,\n      \"price\": -39113542.20333516,\n      \"quantity\": -52830920.106905796,\n      \"product\": {\n        \"productKategories\": 1,\n        \"productCode\": \"deserunt eu\",\n        \"productName\": \"tempor sit eu\"\n      }\n    },\n    {\n      \"lineNo\": -73514152,\n      \"invoiceId\": -61897282,\n      \"producteId\": -13986830,\n      \"netAmount\": -3966769.386104867,\n      \"discountAmount\": 95081202.13011885,\n      \"totalAmount\": -79587981.86557417,\n      \"price\": 62493702.112856835,\n      \"quantity\": -17705348.87811181,\n      \"product\": {\n        \"productKategories\": 0,\n        \"productCode\": \"dolor mollit\",\n        \"productName\": \"cupidatat \"\n      }\n    }\n  ]\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	]
+}
