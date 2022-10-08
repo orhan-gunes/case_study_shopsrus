@@ -1,0 +1,27 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:27836",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+
+
+    "shopsruscase.api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5102",
+      "launchUrl": "swagger",
+      "dotnetRunMessages": true
+    }
+
+
+  }
+}

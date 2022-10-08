@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Applications/bin/Debug/net6.0
+/Applications/obj
+/Domain/bin/Debug/net6.0
+/Domain/obj
+/Infrastructure/bin/Debug/net6.0
+/Infrastructure/obj
+/shopsrus-case-api/obj/Debug/net6.0
+/shopsruscase.api/.sonarqube
+/shopsruscase.api/bin/Debug/net6.0
+/shopsruscase.api/obj
+/Tests/bin/Debug/net6.0
+/Tests/obj
