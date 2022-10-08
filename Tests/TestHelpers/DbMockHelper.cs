@@ -7,9 +7,9 @@ using System.Threading;
 
 namespace Tests.TestHelpers
 {
-    internal class DbMockHelper
+    public class DbMockHelper
     {
-        internal static DbSet<T> CreateMockDbSet<T>(List<T> entity) where T : class 
+        public static DbSet<T> CreateMockDbSet<T>(List<T> entity) where T : class 
         { 
           var dbset=entity.AsQueryable().BuildMockDbSet();
             dbset.Setup(x => x.Add(It.IsAny<T>())).Callback<T>(entity.Add);

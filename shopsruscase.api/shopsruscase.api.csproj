@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>shopsrus_case_api</RootNamespace>
+    <RootNamespace>shopsruscase.api</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

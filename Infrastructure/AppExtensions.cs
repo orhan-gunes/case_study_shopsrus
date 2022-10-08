@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
-
+using shopsruscase.Domain;
+using shopsruscase.Domain.Entityes;
 
 namespace shopsruscase.Infrastructure
 {
@@ -12,6 +13,15 @@ namespace shopsruscase.Infrastructure
             int data = 0;
             int.TryParse(poo,out data);
             return data;    
+        }
+
+
+        public static decimal TryParseDecimal(this object input)
+        {
+            string? poo = input.ToString();
+            decimal data = 0;
+            decimal.TryParse(poo, out data);
+            return data;
         }
 
         public static bool TryParseBool(this object input)

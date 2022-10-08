@@ -3,7 +3,7 @@
 using AutoFixture;
 using Microsoft.AspNetCore.Http;
 using Moq;
-using shopsrus.Infrastructure;
+using shopsruscase.Infrastructure;
 using Shouldly;
 using System;
 using System.Collections.Generic;

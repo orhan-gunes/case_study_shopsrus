@@ -25,7 +25,9 @@ using (var scope = app.Services.CreateScope())
     var context = scope.ServiceProvider.GetService<AppDbContext>();
     if (context != null)
     {
+        context.Database.EnsureCreated();
         await context.Database.MigrateAsync();
+        await DataSeeding.Seed(context);
     }
 }
 

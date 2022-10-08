@@ -13,7 +13,6 @@ namespace shopsruscase.Domain.Entityes
     public class Users: EntityBase
     {
 
-
         [StringLength(50)]
         public string Username { get; set; } = "";
         [StringLength(50)]
