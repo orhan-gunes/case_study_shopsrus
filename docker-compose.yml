@@ -11,7 +11,7 @@ services:
     volumes:
       - datamysql:/var/lib/mysql
     networks:
-      - advert
+      - shoprus
     healthcheck:
      test: mysqladmin ping -h mysqldb -u root --password=2096Hipopotam
      timeout: 20s
@@ -24,22 +24,22 @@ services:
    ports:
     - '6379:6379'
    networks:
-   - advert
+   - shoprus
 
-  advert:
-   image: omka/advertcase:latest
-   container_name: advertcase
+  shoprus:
+   image: omka/shopsrusbackend:latest
+   container_name: shopsrusbackend
    ports:
      - 8090:80
    networks:
-     - advert
+     - shoprus
    depends_on:
      mysqldb:
       condition: service_healthy
   
 
 networks:
-  advert:
+  shoprus:
     driver: bridge
 volumes:
   datamysql:

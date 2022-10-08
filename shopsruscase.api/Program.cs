@@ -14,12 +14,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
-if (app.Environment.IsDevelopment())
-{
-
     app.UseSwagger();
     app.UseSwaggerUI();
-}
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetService<AppDbContext>();
