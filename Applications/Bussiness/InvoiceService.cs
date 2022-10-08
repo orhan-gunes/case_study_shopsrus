@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using shopsruscase.Domain;
 using shopsruscase.Domain.Dtos;
 using shopsruscase.Domain.Entityes;
@@ -16,14 +17,22 @@ namespace shopsruscase.Applications
     {
         private readonly  IAppDbContext _context;
         private readonly IMapper _mapper;
+        private readonly ILogger _logger;
         public InvoiceService(IAppDbContext context, IMapper mapper)
         {
             _context = context; 
             _mapper = mapper;
+            _logger=Log.ForContext<InvoiceService>();   
                 
         }
         public async Task<InvoiceDto> ApplyDiscountInvoices(ApplyDiscountInput input)
         {
+
+            if (input == null) {
+                _logger.Error("İnput Boş olamaz!");
+                return default; 
+            }
+
             bool IsAppliedDiscount = false;
              var Invoice= await  _context.Invoices.Include(x=>x.Customer).ThenInclude(x=>x.Adress).Include(x=>x.InvoiceLines).ThenInclude(x=>x.Product).SingleAsync(f=>f.InvoiceNo.Equals(input.InvoiceNo));
             Invoice.GrossTotal = input.TotalAmount;
@@ -35,12 +44,14 @@ namespace shopsruscase.Applications
                 { 
                     x.DiscountAmount = (x.TotalAmount * 10) / 100;
                     IsAppliedDiscount = true;
+                    _logger.Information("Bağlı Müşteri indirimi Uygulandı");
                 }
 
                 if (!IsAppliedDiscount && Invoice?.Customer?.CustomerType == Domain.CustomerType.Emoloyee && x.Product?.ProductKategories != Domain.ProductKategories.Groceries)
                 {
                     x.DiscountAmount = (x.TotalAmount * 30) / 100;
                     IsAppliedDiscount = true;
+                    _logger.Information("Personel indirimi Uygulandı");
                 }
 
                 if (!IsAppliedDiscount && Invoice?.Customer?.CustomerType == Domain.CustomerType.Other && x.Product?.ProductKategories != Domain.ProductKategories.Groceries)
@@ -49,6 +60,7 @@ namespace shopsruscase.Applications
                     if (oldyear >= 2) { 
                       x.DiscountAmount = (x.TotalAmount * 5) / 100;
                       IsAppliedDiscount = true;
+                        _logger.Information("Sadık Müşteri indirimi Uygulandı");
                     }
                 }
                 x.NetAmount = x.TotalAmount - x.DiscountAmount;
@@ -56,7 +68,7 @@ namespace shopsruscase.Applications
             });
 
             var perDiscount =  (((int)(input.TotalAmount / 100)) * 5);
-
+            _logger.Information("Dip Toplam indirimi Uygulandı");
             var TotalDiscount = (Invoice?.InvoiceLines?.Sum(x => x.DiscountAmount) ?? 0)+ perDiscount;
             Invoice.NetTotal = input.TotalAmount - TotalDiscount;
 
