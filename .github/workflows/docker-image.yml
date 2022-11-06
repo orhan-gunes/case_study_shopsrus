@@ -23,7 +23,8 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
       
-  docker:
+  deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
      - 
